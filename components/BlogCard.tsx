@@ -11,17 +11,17 @@ interface BlogCardProps {
 export default function BlogCard({ slug, title, excerpt, date, readTime }: BlogCardProps) {
   return (
     <Link href={`/blog/${slug}`}>
-      <article className="group p-6 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary hover:shadow-xl transition-all duration-300 h-full">
-        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-3">
+      <article className="group p-6 rounded-xl bg-gray-700 border border-gray-600 hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 h-full">
+        <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
           <time dateTime={date}>{new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
           <span>{readTime}</span>
         </div>
         
-        <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+        <h2 className="text-2xl font-bold mb-3 text-gray-100 group-hover:text-primary transition-colors">
           {title}
         </h2>
         
-        <p className="text-gray-600 dark:text-gray-400 line-clamp-3">
+        <p className="text-gray-400 line-clamp-3">
           {excerpt}
         </p>
         

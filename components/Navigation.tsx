@@ -13,7 +13,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/80 border-b border-gray-200 dark:border-gray-800">
+    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/95 border-b border-gray-700">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -27,7 +27,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-gray-300 hover:text-primary transition-colors font-medium"
               >
                 {link.label}
               </Link>
@@ -36,7 +36,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-700 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -67,12 +67,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-gray-200 dark:border-gray-800">
+          <div className="md:hidden py-4 space-y-2 border-t border-gray-700">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                className="block py-2 px-4 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

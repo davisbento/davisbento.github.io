@@ -67,12 +67,54 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 					</div>
 				</header>
 
-				{/* Article Content */}
-				<div className='prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-p:leading-relaxed prose-a:text-primary hover:prose-a:text-primary-dark prose-code:text-primary prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-800'>
-					<ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
-						{post.content}
-					</ReactMarkdown>
-				</div>
+			{/* Article Content */}
+			<div className='prose prose-lg max-w-none'>
+				<ReactMarkdown
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeHighlight]}
+					components={{
+						h2: ({ children }) => (
+							<h2 className='text-3xl font-bold mt-12 mb-6 text-gray-100'>{children}</h2>
+						),
+						h3: ({ children }) => (
+							<h3 className='text-2xl font-bold mt-8 mb-4 text-gray-100'>{children}</h3>
+						),
+						p: ({ children }) => <p className='text-gray-400 leading-relaxed mb-4'>{children}</p>,
+						ul: ({ children }) => <ul className='list-disc list-inside space-y-2 mb-4 text-gray-400'>{children}</ul>,
+						ol: ({ children }) => <ol className='list-decimal list-inside space-y-2 mb-4 text-gray-400'>{children}</ol>,
+						li: ({ children }) => <li className='text-gray-400'>{children}</li>,
+						a: ({ href, children }) => (
+							<a href={href} className='text-primary hover:text-primary-dark transition-colors underline'>
+								{children}
+							</a>
+						),
+						code: ({ className, children }) => {
+							const isInline = !className;
+							if (isInline) {
+								return (
+									<code className='text-primary bg-gray-700 px-1.5 py-0.5 rounded text-sm font-mono'>
+										{children}
+									</code>
+								);
+							}
+							return <code className={className}>{children}</code>;
+						},
+						pre: ({ children }) => (
+							<pre className='bg-gray-900 border border-gray-700 rounded-lg p-4 overflow-x-auto mb-6'>
+								{children}
+							</pre>
+						),
+						blockquote: ({ children }) => (
+							<blockquote className='border-l-4 border-primary pl-4 italic text-gray-400 my-4'>
+								{children}
+							</blockquote>
+						),
+						strong: ({ children }) => <strong className='font-bold text-gray-200'>{children}</strong>
+					}}
+				>
+					{post.content}
+				</ReactMarkdown>
+			</div>
 
 				{/* Share Section */}
 				<div className='mt-16 pt-8 border-t border-gray-200 dark:border-gray-800'>

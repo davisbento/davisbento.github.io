@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --secondary: #8b5cf6;
-  --accent: #10b981;
+  --background: #0f1419;
+  --foreground: #e5e7eb;
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
+  --secondary: #38bdf8;
+  --accent: #93c5fd;
+  --gray-900: #0f1419;
+  --gray-800: #1a1f2e;
+  --gray-700: #293548;
+  --gray-600: #475569;
+  --gray-500: #64748b;
 }
 
 @theme inline {
@@ -16,17 +21,22 @@
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-gray-900: var(--gray-900);
+  --color-gray-800: var(--gray-800);
+  --color-gray-700: var(--gray-700);
+  --color-gray-600: var(--gray-600);
+  --color-gray-500: var(--gray-500);
   --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0f172a;
-    --foreground: #f1f5f9;
+    --background: #0f1419;
+    --foreground: #e5e7eb;
     --primary: #60a5fa;
     --primary-dark: #3b82f6;
-    --secondary: #a78bfa;
-    --accent: #34d399;
+    --secondary: #38bdf8;
+    --accent: #93c5fd;
   }
 }
 
@@ -39,24 +49,6 @@ body {
 /* Smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
 }
 
 /* Code blocks styling */
