@@ -1,6 +1,7 @@
-import { getPostBySlug } from '@/lib/blog';
+import { getAllSlugs, getPostBySlug } from '@/lib/blog';
 import { ImageResponse } from 'next/og';
 
+export const dynamic = 'force-static';
 export const runtime = 'nodejs';
 export const alt = 'Blog Post';
 export const size = {
@@ -8,6 +9,13 @@ export const size = {
 	height: 630
 };
 export const contentType = 'image/png';
+
+export async function generateStaticParams() {
+	const slugs = getAllSlugs();
+	return slugs.map((slug) => ({
+		slug
+	}));
+}
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
