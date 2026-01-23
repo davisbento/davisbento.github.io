@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import TopTalentBadge from './ToptalBadge';
 
-const basePath = process.env.NODE_ENV === 'production' ? '/davisbento.dev' : '';
+const basePath = process.env.NODE_ENV === 'production' ? 'https://davisbento.dev' : '';
 
 export default function HeroSection() {
 	return (
@@ -31,9 +31,8 @@ export default function HeroSection() {
 					<p className='text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto'>Software Engineer from Brazil 🇧🇷</p>
 
 					<p className='text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto'>
-						Building amazing web and mobile experiences with{' '}
-						<span className='font-semibold text-primary'>Node.js</span>,{' '}
-						<span className='font-semibold text-primary'>React</span>, and{' '}
+						Building amazing web and mobile experiences with <span className='font-semibold text-primary'>Node.js</span>
+						, <span className='font-semibold text-primary'>React</span>, and{' '}
 						<span className='font-semibold text-primary'>React Native</span> for over 11 years
 					</p>
 
