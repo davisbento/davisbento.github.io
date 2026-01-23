@@ -22,7 +22,11 @@ export default function ShareArticle({ title, slug }: ShareArticleProps) {
 	};
 
 	const shareOnLinkedIn = () => {
-		window.open(`https://www.linkedin.com/shareArticle?&url=${encodedUrl}`, '_blank', 'noopener,noreferrer');
+		window.open(
+			`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+			'_blank',
+			'noopener,noreferrer'
+		);
 	};
 
 	return (
