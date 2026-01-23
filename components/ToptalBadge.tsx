@@ -1,6 +1,6 @@
 export default function TopTalentBadge() {
 	return (
-		<div id='r'>
+		<div id='r' className='scale-75'>
 			<style>{`
             @import "https://use.typekit.net/kmj5qkr.css";
     
